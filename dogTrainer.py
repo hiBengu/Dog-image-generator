@@ -27,11 +27,11 @@ class Trainer():
         self.optimizerG = optim.Adam(self.netG.parameters(), lr=args.lr, betas=(args.beta1, 0.999))
 
         # Training Loop
-        self.G_losses = []
-        self.D_losses = []
         self.iters = 0
 
-    def train(self, epoch, img_list):
+    def train(self, epoch, img_list, G_Losses, D_Losses):
+        self.G_Losses = G_Losses
+        self.D_Losses = D_Losses
         self.img_list = img_list
         for i, data in enumerate(self.dataloader, 0):
             #####
@@ -101,14 +101,14 @@ class Trainer():
                          errD.item(), errG.item(), D_x, D_G_z1, D_G_z2))
 
             # Save Losses for plotting later
-            self.G_losses.append(errG.item())
-            self.D_losses.append(errD.item())
+            self.G_Losses.append(errG.item())
+            self.D_Losses.append(errD.item())
 
             # Check how the generator is doing by saving G's output on fixed_noise
-            if (self.iters % 500 == 0) or ((epoch == args.numEpochs-1) and (i == len(self.dataloader)-1)):
+            if (self.iters % 500 == 0) or ((epoch == self.numEpochs-1) and (i == len(self.dataloader)-1)):
                 with torch.no_grad():
                     fake = self.netG(self.fixedNoise).detach().cpu()
                 self.img_list.append(vutils.make_grid(fake, padding=2, normalize=True))
             self.iters += 1
 
-            return self.img_list
+        return self.img_list, self.G_Losses, self.D_Losses
