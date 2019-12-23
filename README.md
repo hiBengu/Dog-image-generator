@@ -11,7 +11,7 @@ This is an assignment given in "Machine Learning for Signal Processing" course i
   > "dogModel.py" contains generator and discriminator network classes.<br />
   > "dogDataLoader.py" reads the dataset and save to use them later.<br />
   > "dogTrainer.py" returns a class for training. Loss and optimization operations are inside this script<br />
-  > "dogFinalize.py" saves the model, and figures at the end of the training.<br />
+  > "dogFinalize.py" saves the model and figures at the end of the training.<br />
   
 "evalDog.py" loads the trained generator network and creates new artificial dog images from noise.
 
