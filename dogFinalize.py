@@ -1,4 +1,4 @@
-import numpy
+import numpy as np
 import torch
 import torchvision.utils as vutils
 import matplotlib.pyplot as plt
@@ -13,20 +13,21 @@ def saveFinish(img_list, G_Losses, D_Losses, netG, manualSeed):
     plt.xlabel("iterations")
     plt.ylabel("Loss")
     plt.legend()
-    plt.savefig("figures/300e40kLoss.png")
+    plt.savefig("figures/100e40kLoss.png")
 
-    npImgList = np.asarray(np.transpose(img_list,(1,2,0)))
-    npImgList = np.expand_dims(npImgList, axis=0)
+    npImgList = np.full((len(img_list),530,530,3),0)
+    print(npImgList.shape)
+    for i in range(len(img_list)):
+        npImgList[i] = np.asarray(np.transpose(img_list[i],(1,2,0)))
+
     print(npImgList.shape)
 
     for i in range(npImgList.shape[0]):
-        img = np.transpose(img_list[i],(1,2,0))
-        fig = plt.figure()
-        plt.imshow(img)
-        if i % 2 == 0:
+        plt.figure()
+        plt.imshow(npImgList[i])
+        if (i % 10 == 0 or i == npImgList.shape[0]-1 ):
             plt.savefig("figures/100e40k"+str(manualSeed)+"S"+str(i)+"epoch.png")
-        img = np.expand_dims(img, axis=0)
-        npImgList = np.vstack((npImgList,np.asarray(img)))
+        plt.close()
 
     np.save("genOut100e40kIm"+str(manualSeed)+".npy", npImgList)
 

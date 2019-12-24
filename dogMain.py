@@ -16,7 +16,7 @@ random.seed(manualSeed)
 torch.manual_seed(manualSeed)
 
 parser = argparse.ArgumentParser(description='Generate fake dog images')
-parser.add_argument('--dataroot', default='../dogData',
+parser.add_argument('--dataroot', default='../datasets/dogData',
                     help='Dataset directory')
 parser.add_argument('--workers', type=int, default='2',
                     help='number of worker thread for loading the data')

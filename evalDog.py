@@ -48,7 +48,7 @@ netG = Generator(ngpu) # Defined generator
 
 noise = torch.randn(64, 100, 1, 1, device=device) # Random noise
 
-model = torch.load("300e40k857.pt", map_location=torch.device('cpu')) # Load Model
+model = torch.load("models/100e40k5187.pt", map_location=torch.device('cpu')) # Load Model
 netG.load_state_dict(model['state_dict'])
 
 out = netG(noise).detach().cpu() # Push noise to network

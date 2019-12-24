@@ -1,7 +1,7 @@
 import numpy as np
 from matplotlib import pyplot as plt
 
-images = np.load("genOut300e40kIm857.npy")
+images = np.load("genOut100e40kIm5187.npy")
 # Load the numpy array, that saved after training
 
 print(images.shape)

@@ -1,8 +1,8 @@
 import  os
 import  cv2
 import  random
-dir = "/home/itu/hibengu/datasets/rawDogData"
-newDir = "/home/itu/hibengu/datasets/dogData/Images"
+dir = "../datasets/rawDogData"
+newDir = "../datasets/dogData/Images"
 
 # We  created  a new  directory  for  selected  dataset.
 idx = 0
