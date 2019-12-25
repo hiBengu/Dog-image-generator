@@ -74,4 +74,4 @@ for epoch in range(args.numEpochs):
     # For each batch in DataLoader
     img_list, G_Losses, D_Losses = Trainer.train(epoch, img_list, G_Losses, D_Losses)
 
-saveFinish(img_list, G_Losses, D_Losses, netG, manualSeed)
+saveFinish(img_list, G_Losses, D_Losses, netG, manualSeed, netD)

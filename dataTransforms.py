@@ -14,7 +14,8 @@ for  dogType  in os.listdir(dir):
         img = cv2.imread(os.path.join(dogDir ,dogPhoto))
         imgOrg = cv2.resize(img ,(256 ,256))
         imgflipped = cv2.flip(img, 1)
-        imgCropped = img[int(img.shape[0]/2)-128:int(img.shape[0]/2)+128, int(img.shape[1]/2)-128:int(img.shape[1]/2)+128]
+        #imgCropped = img[int(img.shape[0]/2)-128:int(img.shape[0]/2)+128, int(img.shape[1]/2)-128:int(img.shape[1]/2)+128]
+
         # if  (idx % 2 == 0):
         #     M = cv2.getRotationMatrix2D((imgOrg.shape[0]/2,imgOrg.shape[1]/2), 45, 1.0)
         #     imgRotated = cv2.warpAffine(imgOrg, M, (imgOrg.shape[0], imgOrg.shape[1]))
@@ -31,7 +32,8 @@ for  dogType  in os.listdir(dir):
 
         cv2.imwrite(os.path.join(newDir ,writeName), imgOrg)
         cv2.imwrite(os.path.join(newDir ,writeNameFlipped), imgflipped)
-        if (imgCropped.shape[0] == 256 and imgCropped.shape[1] == 256):
-            cv2.imwrite(os.path.join(newDir ,writeNameCropped), imgCropped)
+        # if (imgCropped.shape[0] == 256 and imgCropped.shape[1] == 256):
+        #     cv2.imwrite(os.path.join(newDir ,writeNameCropped), imgCropped)
+        
         # cv2.imwrite(os.path.join(newDir, writeNameRotated), imgRotated)
         idx += 1
