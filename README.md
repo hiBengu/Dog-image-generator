@@ -4,7 +4,7 @@ This project creates artificial dog images with a basic DCGAN implementation.
 
 This is an assignment given in "Machine Learning for Signal Processing" course in Istanbul Technical University.
 
-For the project poster, please click the link.[Project Poster](https://drive.google.com/file/d/1BAShBYltUju58INan_qC0KAKaGFFlwgx/view?usp=sharing)
+For the project poster, please click the link. [Project Poster](https://drive.google.com/file/d/1BAShBYltUju58INan_qC0KAKaGFFlwgx/view?usp=sharing)
 
 ## Files
 "dataTransforms.py" reads unprocessed images, by flipping and cropping them creates a triple sized dataset and saves them. 
